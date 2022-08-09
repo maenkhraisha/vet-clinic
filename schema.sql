@@ -17,7 +17,7 @@ CREATE TABLE owners (
     age INT);
 
 CREATE TABLE species (
- id SERIAL PRIMARY KEY,
+ id INT PRIMARY KEY,
  name varchar(50) NOT NULL);
 
 ALTER TABLE animals DROP column species;
