@@ -11,6 +11,18 @@ CREATE TABLE animals2(
 
 ALTER TABLE animals ADD COLUMN species VARCHAR(30);
 
+CREATE TABLE owners (
+    id SERIAL PRIMARY KEY,
+    full_name varchar(50) NOT NULL,
+    age INT);
 
+CREATE TABLE species (
+ id SERIAL PRIMARY KEY,
+ name varchar(50) NOT NULL);
 
+ALTER TABLE animals DROP column species;
+ALTER TABLE animals ADD COLUMN species_id INT;
+ALTER TABLE animals ADD COLUMN owner_id INT;
+ALTER TABLE animals ADD CONSTRAINT fk_species_animal FOREIGN KEY (species_id) REFERENCES species (id);
+ALTER TABLE animals ADD CONSTRAINT fk_owner_animal FOREIGN KEY (owner_id) REFERENCES owners (id);
 
