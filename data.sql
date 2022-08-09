@@ -57,3 +57,22 @@ update animals set species = 'pokemon' where species = '';
 commit;
 select * from animals;
 
+insert INTO owners (full_name,age) VALUES ('Sam Smith',34);
+insert INTO owners (full_name,age) VALUES ('Jennifer Orwell',19);
+insert INTO owners (full_name,age) VALUES ('Bob',45);
+insert INTO owners (full_name,age) VALUES ('Melofy Pond',77);
+insert INTO owners (full_name,age) VALUES ('Dean Winchester',14);
+insert INTO owners (full_name,age) VALUES ('Jodie Whittaker',38);
+
+insert INTO species (name) VALUES ('Pokemin');
+insert INTO species (name) VALUES ('Digimon');
+
+update animals set species_id = 2 where name like '%mon';
+update animals set species_id = 1 where species_id is null;
+
+update animals set owner_id = 1 where id = 3;
+update animals set owner_id = 2 where id = 5;
+update animals set owner_id = 3 where id = 6 OR id = 8;
+update animals set owner_id = 4 where id = 7 OR id = 9 OR id = 12; 
+update animals set owner_id = 5 where id = 3 OR id=11;
+ 
