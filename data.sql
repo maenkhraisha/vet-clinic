@@ -44,3 +44,16 @@ INSERT INTO animals
  INSERT INTO animals
 (name,date_of_birth,escape_attempts,neutered,weight_kg)
  VALUES ('Ditto','5/14/2022', 4, '1', 22);
+
+begin
+update animals set species = 'unspecified';
+select * from animals;
+ ROLLBACK;
+ select * from animals;
+
+ begin;
+ update animals set species = 'digimon' where name like '%mon';
+update animals set species = 'pokemon' where species = '';
+commit;
+select * from animals;
+
