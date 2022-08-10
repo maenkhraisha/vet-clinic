@@ -58,3 +58,58 @@ AND o.full_name='Dean Winchester';
 SELECT max(o.full_name) as owner_name 
 FROM animals a 
 INNER JOIN  owners o ON a.owner_id = o.id;
+
+-- Who was the last animal seen by William Tatcher?
+select  animals.name
+from visits 
+INNER JOIN animals ON  visits.animal_id  = animals.id
+WHERE visits.date_of_visit = (
+        select  MAX(visits.date_of_visit)
+        from visits,vets,animals 
+        where vets.id=visits.vet_id 
+        and animals.id=visits.animal_id 
+        and vets.name='William Tatcher');
+
+-- How many different animals did Stephanie Mendez see?
+ select   count(DISTINCT animals.name)
+ from visits 
+ inner join animals on animals.id = visits.animal_id 
+ inner join vets on visits.vet_id = vets.id 
+ where vets.name='Maisy Smith';
+
+-- List all vets and their specialties, including vets with no specialties.
+SELECT vets.name ,specializations.vet_id,species.name 
+FROM specializations 
+RIGHT JOIN vets ON vets.id=specializations.vet_id 
+LEFT JOIN species ON species.id =specializations.species_id;
+
+-- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+SELECT animals.name,visits.date_of_visit,vets.name 
+FROM visits
+INNER JOIN vets ON vets.id = visits.vet_id
+INNER JOIN animals ON animals.id = visits.animal_id
+WHERE visits.date_of_visit BETWEEN '4/1/2020' AND '8/30/2020'
+AND vets.name = 'Stephanie Mendez';
+
+-- What animal has the most visits to vets?
+-- SELECT y.nn FROM
+SELECT animals.name,count(animals.name) as no_of_visit
+FROM visits
+INNER JOIN animals ON animals.id = visits.animal_id
+GROUP BY animals.name
+ORDER  BY no_of_visit DESC
+LIMIT  1;
+
+-- Who was Maisy Smith's first visit?
+SELECT animals.name , visits.date_of_visit as visit_date
+FROM   visits 
+INNER JOIN animals ON animals.id = visits.animal_id
+INNER JOIN vets ON vets.id = visits.vet_id
+WHERE vets.name = 'Maisy Smith'
+ORDER  BY visit_date DESC
+LIMIT  1;
+
+
+-- Details for most recent visit: animal information, vet information, and date of visit.
+-- How many visits were with a vet that did not specialize in that animal's species?
+-- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
