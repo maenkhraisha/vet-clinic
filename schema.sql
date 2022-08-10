@@ -40,6 +40,7 @@ ALTER TABLE specializations ADD CONSTRAINT fk_owner_animal FOREIGN KEY (vet_id) 
 
 CREATE TABLE visits (
     animal_id INT,
-    vet_id INT);
+    vet_id INT,
+    date_of_visit DATE);
 ALTER TABLE visits ADD CONSTRAINT fk_species_visits FOREIGN KEY (animal_id) REFERENCES animals (id);
 ALTER TABLE visits ADD CONSTRAINT fk_owner_visits FOREIGN KEY (vet_id) REFERENCES vets (id);
