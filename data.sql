@@ -76,3 +76,17 @@ update animals set owner_id = 3 where id = 6 OR id = 8;
 update animals set owner_id = 4 where id = 7 OR id = 9 OR id = 12; 
 update animals set owner_id = 5 where id = 3 OR id=11;
  
+-- insert into vets table
+
+insert INTO vets (name,age,date_of_graduation) VALUES ('William Tatcher',45,'5/23/2000');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Maisy Smith',26,'6/17/2019');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Stephanie Mendez',64,'4/5/1981');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Jack Harkness',38,'6/8/2008');
+
+-- insert into specializations 
+insert INTO  specializations (vet_id,species_id) VALUES (1,1);
+insert INTO  specializations (vet_id,species_id) VALUES (3,1);
+insert INTO  specializations (vet_id,species_id) VALUES (3,2);
+insert INTO  specializations (vet_id,species_id) VALUES (4,2);
+
+
