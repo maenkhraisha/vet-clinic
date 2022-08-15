@@ -76,3 +76,39 @@ update animals set owner_id = 3 where id = 6 OR id = 8;
 update animals set owner_id = 4 where id = 7 OR id = 9 OR id = 12; 
 update animals set owner_id = 5 where id = 3 OR id=11;
  
+-- insert into vets table
+
+insert INTO vets (name,age,date_of_graduation) VALUES ('William Tatcher',45,'5/23/2000');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Maisy Smith',26,'6/17/2019');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Stephanie Mendez',64,'4/5/1981');
+insert INTO vets (name,age,date_of_graduation) VALUES ('Jack Harkness',38,'6/8/2008');
+
+-- insert into specializations 
+insert INTO  specializations (vet_id,species_id) VALUES (1,1);
+insert INTO  specializations (vet_id,species_id) VALUES (3,1);
+insert INTO  specializations (vet_id,species_id) VALUES (3,2);
+insert INTO  specializations (vet_id,species_id) VALUES (4,2);
+
+-- insert into visits
+insert INTO  visits  VALUES (3,1,'5/24/2020');
+insert INTO  visits  VALUES (3,3,'7/22/2020');
+insert INTO  visits  VALUES (4,4,'2/2/2021');
+insert INTO  visits  VALUES (5,2,'1/5/2020');
+insert INTO  visits  VALUES (5,2,'3/8/2020');
+insert INTO  visits  VALUES (5,2,'5/14/2020');
+insert INTO  visits  VALUES (6,3,'5/4/2021');
+insert INTO  visits  VALUES (7,4,'2/24/2021');
+insert INTO  visits  VALUES (8,2,'11/21/2019');
+insert INTO  visits  VALUES (8,1,'8/10/2020');
+insert INTO  visits  VALUES (8,2,'4/7/2021');
+insert INTO  visits  VALUES (9,3,'9/29/2019');
+insert INTO  visits  VALUES (10,4,'10/3/2020');
+insert INTO  visits  VALUES (10,4,'12/4/2020');
+insert INTO  visits  VALUES (11,2,'1/24/2019');
+insert INTO  visits  VALUES (11,2,'5/15/2019');
+insert INTO  visits  VALUES (11,2,'2/27/2020');
+insert INTO  visits  VALUES (11,2,'8/3/2020');
+insert INTO  visits  VALUES (12,3,'5/24/2020');
+insert INTO  visits  VALUES (12,1,'1/11/2021');
+
+
