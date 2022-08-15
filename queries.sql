@@ -55,9 +55,12 @@ WHERE a.escape_attempts = 0
 AND o.full_name='Dean Winchester';
 
 -- Who owns the most animals?
-SELECT max(o.full_name) as owner_name 
+SELECT o.full_name
 FROM animals a 
-INNER JOIN  owners o ON a.owner_id = o.id;
+INNER JOIN  owners o ON a.owner_id = o.id
+GROUP by o.full_name
+ORDER by count(*) DESC
+LIMIT 1;
 
 -- Project Day 4
 -- (1) Who was the last animal seen by William Tatcher? 
